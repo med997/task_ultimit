@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class TextFieldWidget extends StatefulWidget {
   TextFieldWidget({super.key});
@@ -10,19 +11,21 @@ class TextFieldWidget extends StatefulWidget {
 class _TextFieldWidgetState extends State<TextFieldWidget> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 200,
+    return const SizedBox(
+       width: 200,
+      height: 30,
       child: TextField(
         style: TextStyle(fontSize: 14),
         decoration: InputDecoration(
             prefixIcon: Icon(Icons.search),
             hintText: 'search',
-            contentPadding:EdgeInsets.all(8),
-            filled: true,/*
+            contentPadding:  EdgeInsets.symmetric(vertical: 5.0),
+            filled: true,
             border: OutlineInputBorder(
-              borderSide: BorderSide(width: 0.5,strokeAlign: 0.5),
-              borderRadius: BorderRadius.circular(8),
-            )*/),
+              gapPadding:0 ,
+              borderSide: BorderSide(width: 0,strokeAlign: 0,color: Colors.transparent),
+              borderRadius: BorderRadius.all( Radius.circular(50)),
+            ),),
       ),
     );
   }

@@ -1,0 +1,3 @@
+
+
+enum LineChartType{oneLine,twoLine}

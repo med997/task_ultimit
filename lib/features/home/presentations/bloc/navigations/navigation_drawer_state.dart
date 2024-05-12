@@ -1,17 +1,25 @@
 part of 'navigation_drawer_bloc.dart';
 
 sealed class NavigationDrawerState extends Equatable {
-  final int selectedIndex;
+  final String selectedIndex;
+  final bool isOpen;
 
-  const NavigationDrawerState({required this.selectedIndex});
+  NavigationDrawerState({required this.isOpen,required this.selectedIndex});
 
   @override
-  List<Object> get props => [selectedIndex];
+  List<Object> get props => [selectedIndex,isOpen];
 }
 
 final class NavigationDrawerInitial extends NavigationDrawerState {
-  const  NavigationDrawerInitial({required super.selectedIndex});
+  NavigationDrawerInitial({required super.isOpen, required super.selectedIndex});
+
 }
+
 final class NavigationDrawerChanged extends NavigationDrawerState {
-  const  NavigationDrawerChanged({required super.selectedIndex});
+  NavigationDrawerChanged({required super.isOpen, required super.selectedIndex});
+
+}
+
+final class NavigationDrawerOpen extends NavigationDrawerState {
+  NavigationDrawerOpen({required super.isOpen, required super.selectedIndex});
 }

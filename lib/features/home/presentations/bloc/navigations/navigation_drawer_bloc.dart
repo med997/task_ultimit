@@ -7,11 +7,17 @@ part 'navigation_drawer_state.dart';
 
 class NavigationDrawerBloc
     extends Bloc<NavigationDrawerEvent, NavigationDrawerState> {
-  NavigationDrawerBloc() : super(const NavigationDrawerInitial(selectedIndex: 0)) {
+  NavigationDrawerBloc() : super(NavigationDrawerInitial(selectedIndex: "Home", isOpen: true)) {
     on<NavigateTo>((event, emit) {
-      if (event.selectedIndex != state.selectedIndex) {
-        emit(NavigationDrawerChanged(selectedIndex: event.selectedIndex));
+      if (event.selectedIndex !=state.selectedIndex) {
+        emit(NavigationDrawerChanged(selectedIndex: event.selectedIndex,isOpen: true));
       }
     });
+    on<ChangeDrawerView>((event, emit) {
+
+        emit(NavigationDrawerOpen(isOpen: event.isOpen, selectedIndex: state.selectedIndex));
+
+    },);
+
   }
 }

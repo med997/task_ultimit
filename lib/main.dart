@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:task_ultimit/features/home/presentations/bloc/navigations/navigation_drawer_bloc.dart';
 import 'package:task_ultimit/features/home/presentations/ui/home_page.dart';
 import 'package:task_ultimit/shared/colors.dart';
@@ -21,16 +22,24 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          backgroundColor: colorBg,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-          useMaterial3: true,
-
-        ),
+            useMaterial3: false,
+            textTheme: GoogleFonts.readexProTextTheme(),
+            brightness: Brightness.light,
+            colorScheme: const ColorScheme.light()
+                .copyWith(background: colorBg2, primary: colorBlue ),
+            drawerTheme: const DrawerThemeData(
+              elevation: 0,
+                backgroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)))),
+            cardTheme: const CardTheme(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10))))),
         home: const HomePage(),
       ),
     );
   }
 }
-
